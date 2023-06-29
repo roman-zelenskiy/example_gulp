@@ -15,8 +15,8 @@ function convertToWebp() {
         .pipe(webp())
         .pipe(gulp.dest('dist/img'))
 };
-function copyGif() {
-    return gulp.src(['src/img/**/*.gif'])
+function copyGifAndIco() {
+    return gulp.src(['src/img/**/*.gif','src/img/**/*.ico'])
         .pipe(gulp.dest('dist/img'))
 };
 function onSvgSprite() {
@@ -48,7 +48,7 @@ function watchСhanges() {
     gulp.watch("./src/script/*.js", buildScripts);
     gulp.watch('./src/img/*.svg', onSvgSprite);
     gulp.watch(['src/img/**/*.png', 'src/img/**/*.jpg'], convertToWebp);
-    gulp.watch(['src/img/**/*.gif'], copyGif);
+    gulp.watch(['src/img/**/*.gif','src/img/**/*.ico'], copyGifAndIco);
     gulp.watch(['src/data/**/*.json'], copyData);
 }
 
@@ -58,7 +58,7 @@ exports.watchСhanges = watchСhanges;
 exports.buildStylesTask = buildStylesTask;
 exports.onSvgSprite = onSvgSprite;
 exports.convertToWebp = convertToWebp;
-exports.copyGif = copyGif;
+exports.copyGifAndIco = copyGifAndIco;
 exports.copyData = copyData;
 
 exports.watchProject = gulp.series(
@@ -67,7 +67,7 @@ exports.watchProject = gulp.series(
     buildStylesTask,
     buildScripts,
     convertToWebp,
-    copyGif,
+    copyGifAndIco,
     copyData,
     watchСhanges
 );
@@ -78,6 +78,6 @@ exports.buildProject = gulp.series(
     buildStylesTask,
     buildScripts,
     convertToWebp,
-    copyGif,
+    copyGifAndIco,
     copyData,
 );
