@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import './var_mixins.scss';
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+body .container {
+    width: 100%;
+    max-width: 1320px;
+}
+
+
+
+
+
+
+@import './cookie.scss';
+@import './sm.scss';
+@import './md.scss';
+@import './lg.scss';
+@import './xl.scss';
+@import './xxl.scss';
